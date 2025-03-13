@@ -1,5 +1,5 @@
 {
-  "version": "0.0.99119",
+  "version": "0.0.99127",
   "name": "voice-recorder",
   "title": "Voice Recorder",
   "description": "A Voice Recorder Plugin to Tap and Record Audio",
@@ -231,7 +231,21 @@
           "type": "text",
           "title": "Type",
           "default": "message"
+        },
+        {
+          "attr": "refresh_id",
+          "type": "number",
+          "title": "Refresh ID",
+          "default": 0
+        },
+        {
+          "attr": "flow",
+          "type": "flow",
+          "title": "Flow",
+          "default": "default"
         }
+          
+        
       ]
     }
   ]

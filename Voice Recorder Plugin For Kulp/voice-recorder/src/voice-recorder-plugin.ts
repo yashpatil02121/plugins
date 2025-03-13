@@ -35,7 +35,7 @@ export class VoiceRecorder extends KulpElement {
   @prop({ type: String }) messageParentId = ""; // ✅ Fixed Type
   @prop({ type: String }) noticeParentId = "";  // ✅ Fixed Type
   @prop({ type: String }) receiverId = "";  // ✅ Fixed Type
-
+  @prop({ type: Number }) refresh_id = 0;
 
   
 
@@ -252,20 +252,27 @@ async startRecording() {
   }
 }
 
+dispatchRefreshIdUpdated() {
+  window.dispatchEvent(new CustomEvent("refresh_id_updated", { detail: { refresh_id: this.refresh_id }}));
+}
+
+
   
-  stopRecording() {
-    if (this.mediaRecorder && this.isRecording) {
-      this.mediaRecorder.stop();
-      this.isRecording = false;
+stopRecording() {
+  if (this.mediaRecorder && this.isRecording) {
+    this.mediaRecorder.stop();
+    this.isRecording = false;
 
-      if (this.stream) {
-        this.stream.getTracks().forEach((track) => track.stop());
-        this.stream = null;
-      }
-
-      this.requestUpdate();
+    if (this.stream) {
+      this.stream.getTracks().forEach((track) => track.stop());
+      this.stream = null;
     }
+
+    this.refresh_id = Date.now(); // ✅ Set a new unique Refresh ID
+    this.requestUpdate();  // ✅ Force UI update
   }
+}
+
 
   closePopup() {
     this.showPopup = false;
@@ -280,20 +287,21 @@ async startRecording() {
           @pointerdown="${this.startRecording}" 
           @pointerup="${this.stopRecording}" 
           ?disabled=${this.disableRecording}
-          style="background-color: ${this.isRecording ? this.getColorValue(this.recordingButtonColorMode) : this.getColorValue(this.buttonColorMode)};"
-        >
+          style="background-color: ${this.isRecording ? this.getColorValue(this.recordingButtonColorMode) : this.getColorValue(this.buttonColorMode)};">
           <span style="user-select: none;">${this.isRecording ? this.recordingText : this.idleText}</span>
         </button>
-
+  
+        <script>
+          window.dispatchEvent(new CustomEvent("refresh_id_updated", { detail: { refresh_id: ${this.refresh_id} }}));
+        </script>
+  
         ${this.showAudioPlayer && this.audioURL && this.showPopup ? html`
-          <div class="popup-audio-player" 
-               style="${this.audioPlayerPosition === 'top' ? 'top: 15%;' : 
-                      this.audioPlayerPosition === 'middle' ? 'top: 50%; transform: translate(-50%, -50%);' :
-                      'bottom: 15%;'}">
+          <div class="popup-audio-player">
             <button class="popup-close" @click="${this.closePopup}">✖</button>
             <audio class="audio-player" controls src="${this.audioURL}"></audio>
           </div>` : ""}
       </div>
     `;
   }
+  
 }

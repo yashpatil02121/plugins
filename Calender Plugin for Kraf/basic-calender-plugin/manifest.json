@@ -1,0 +1,36 @@
+{
+  "version": "0.0.10017",
+  "name": "basic-calender-plugin",
+  "title": "Basic Calendar Plugin",
+  "description": "A customizable calendar plugin with event indicators, date selection, and month navigation.",
+  "pm": "pnpm",
+  "access": "public",
+  "components": [
+    {
+      "name": "basic-calender-plugin.basic-calender",
+      "title": "Basic Calendar",
+      "description": "A customizable calendar component with event indicators, date selection, and month navigation.",
+      "children": false,
+      "settings": [
+        {
+          "attr": "selectedDate",
+          "type": "text",
+          "title": "Selected Date",
+          "default": ""
+        },
+        {
+          "attr": "calendarTitle",
+          "type": "text",
+          "title": "Calendar Title",
+          "default": "My Calendar"
+        },
+        {
+          "attr": "eventDates",
+          "type": "text",
+          "title": "Event Dates (JSON)",
+          "default": "{}"
+        }
+      ]
+    }
+  ]
+}

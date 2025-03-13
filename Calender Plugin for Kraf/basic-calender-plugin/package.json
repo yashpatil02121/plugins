@@ -1,0 +1,26 @@
+{
+  "name": "basic-calender-plugin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve": "concurrently \"vite preview\" \"vite build --watch\""
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "dayjs": "^1.11.13",
+    "kulp-kit": "^0.0.21",
+    "lit": "^3.1.2",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/vue": "^2.0.0",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  }
+}

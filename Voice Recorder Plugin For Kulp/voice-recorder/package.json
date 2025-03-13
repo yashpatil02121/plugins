@@ -1,0 +1,25 @@
+{
+  "name": "voice-recorder",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve": "concurrently \"vite preview\" \"vite build --watch\""
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.758.0",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "aws-sdk": "^2.1692.0",
+    "kulp-kit": "^0.0.21",
+    "lit": "^3.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  }
+}

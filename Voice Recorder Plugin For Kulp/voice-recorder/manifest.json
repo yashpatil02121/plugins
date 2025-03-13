@@ -1,0 +1,238 @@
+{
+  "version": "0.0.99119",
+  "name": "voice-recorder",
+  "title": "Voice Recorder",
+  "description": "A Voice Recorder Plugin to Tap and Record Audio",
+  "pm": "pnpm",
+  "access": "public",
+  "components": [
+    {
+      "name": "voice-recorder.voice-recorder-plugin",
+      "title": "Voice Recorder",
+      "description": "A Voice Recorder Plugin to Tap and Record Audio",
+      "children": false,
+      "settings": [
+        {
+          "attr": "audioFormat",
+          "type": "select",
+          "title": "Audio Format",
+          "default": "audio/webm",
+          "options": [
+            { "value": "audio/webm", "title": "WebM" },
+            { "value": "audio/mp3", "title": "MP3" },
+            { "value": "audio/wav", "title": "WAV" },
+            { "value": "audio/ogg", "title": "OGG" }
+          ]
+        },
+        {
+          "attr": "idleText",
+          "type": "text",
+          "title": "Idle Button Text",
+          "default": "🎙️"
+        },
+        {
+          "attr": "recordingText",
+          "type": "text",
+          "title": "Recording Button Text",
+          "default": "..."
+        },
+        {
+          "attr": "audioPlayerPosition",
+          "type": "select",
+          "title": "Audio Player Position",
+          "default": "bottom",
+          "options": [
+            { "value": "top", "title": "Top" },
+            { "value": "middle", "title": "Middle" },
+            { "value": "bottom", "title": "Bottom" }
+          ]
+        },
+        {
+          "attr": "maxDuration",
+          "type": "number",
+          "title": "Max Recording Duration (Seconds)",
+          "default": 60
+        },
+        {
+          "attr": "enableTimer",
+          "type": "checkbox",
+          "title": "Enable Timer",
+          "default": true
+        },
+        {
+          "attr": "showAudioPlayer",
+          "type": "checkbox",
+          "title": "Show Audio Player",
+          "default": true
+        },
+        {
+          "attr": "disableRecording",
+          "type": "checkbox",
+          "title": "Disable Recording",
+          "default": false
+        },
+        {
+          "attr": "recordingIndicator",
+          "type": "checkbox",
+          "title": "Show Recording Indicator",
+          "default": true
+        },
+        {
+          "attr": "autoPlayAfterRecord",
+          "type": "checkbox",
+          "title": "Auto-Play After Recording",
+          "default": false
+        },
+        {
+          "attr": "saveToLocalStorage",
+          "type": "checkbox",
+          "title": "Save Recording to Local Storage",
+          "default": false
+        },
+        {
+          "attr": "outputVariable",
+          "type": "text",
+          "title": "Output Variable Name",
+          "default": ""
+        },
+
+        {
+          "attr": "buttonColorMode",
+          "type": "color",
+          "title": "Idle Button Color",
+          "default": "primary",
+          "options": [
+            { "value": "primary", "title": "Primary" },
+            { "value": "secondary", "title": "Secondary" },
+            { "value": "tertiary", "title": "Tertiary" },
+            { "value": "accent", "title": "Accent" },
+            { "value": "highlight", "title": "Highlight" },
+            { "value": "text", "title": "Text" },
+            { "value": "background", "title": "Background" },
+            { "value": "red", "title": "Red" },
+            { "value": "green", "title": "Green" },
+            { "value": "blue", "title": "Blue" },
+            { "value": "yellow", "title": "Yellow" },
+            { "value": "orange", "title": "Orange" },
+            { "value": "pink", "title": "Pink" },
+            { "value": "purple", "title": "Purple" },
+            { "value": "brown", "title": "Brown" },
+            { "value": "grey", "title": "Grey" },
+            { "value": "black", "title": "Black" },
+            { "value": "white", "title": "White" }
+          ]
+        },
+        {
+          "attr": "recordingButtonColorMode",
+          "type": "color",
+          "title": "Recording Button Color",
+          "default": "accent",
+          "options": [
+            { "value": "primary", "title": "Primary" },
+            { "value": "secondary", "title": "Secondary" },
+            { "value": "tertiary", "title": "Tertiary" },
+            { "value": "accent", "title": "Accent" },
+            { "value": "highlight", "title": "Highlight" },
+            { "value": "text", "title": "Text" },
+            { "value": "background", "title": "Background" },
+            { "value": "red", "title": "Red" },
+            { "value": "green", "title": "Green" },
+            { "value": "blue", "title": "Blue" },
+            { "value": "yellow", "title": "Yellow" },
+            { "value": "orange", "title": "Orange" },
+            { "value": "pink", "title": "Pink" },
+            { "value": "purple", "title": "Purple" },
+            { "value": "brown", "title": "Brown" },
+            { "value": "grey", "title": "Grey" },
+            { "value": "black", "title": "Black" },
+            { "value": "white", "title": "White" }
+            ]
+        },
+        {
+          "attr": "saveToAWS",
+          "type": "checkbox",
+          "title": "Save Directly to AWS S3",
+          "default": false
+        },        
+        {
+          "attr": "s3AccessKey",
+          "type": "text",
+          "title": "AWS S3 Access Key",
+          "default": ""
+        },
+        {
+          "attr": "s3SecretKey",
+          "type": "text",
+          "title": "AWS S3 Secret Key",
+          "default": ""
+        },
+        {
+          "attr": "s3BucketName",
+          "type": "text",
+          "title": "AWS S3 Bucket Name",
+          "default": ""
+        },
+        {
+          "attr": "s3Region",
+          "type": "text",
+          "title": "AWS S3 Region",
+          "default": "us-east-1"
+        },
+        {
+          "attr": "apiBaseUrl",
+          "type": "text",
+          "title": "Django API Base URL",
+          "default": "https://your-django-backend.com"
+        },
+        {
+          "attr": "authToken",
+          "type": "text",
+          "title": "User Authentication Token",
+          "default": ""
+        },
+        {
+          "attr": "fileNamingFormat",
+          "type": "text",
+          "title": "Recording File Naming Format",
+          "default": "recording-{timestamp}.webm"
+        },
+        {
+          "attr": "messageParentId",
+          "type": "text",
+          "title": "Message Parent ID",
+          "default": 0
+        },
+        {
+          "attr": "messageId",
+          "type": "text",
+          "title": "Message ID",
+          "default": 0
+        },
+        {
+          "attr": "receiverId",
+          "type": "text",
+          "title": "Receiver ID",
+          "default": 0
+        },
+        {
+          "attr": "noticeParentId",
+          "type": "text",
+          "title": "Notice Parent ID",
+          "default": 0
+        },
+        {
+          "attr": "noticeId",
+          "type": "text",
+          "title": "Notice ID",
+          "default": 0
+        },
+        {
+          "attr": "type",
+          "type": "text",
+          "title": "Type",
+          "default": "message"
+        }
+      ]
+    }
+  ]
+}
